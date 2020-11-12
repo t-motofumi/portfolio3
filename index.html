@@ -1,0 +1,376 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div id="hero">
+
+
+<div id="hero-img">
+<!-- ヒーロー画像 -->
+  <picture>
+    <source media="(max-width: 680px)" srcset="img/hero-img@mobile.png, img/hero-img@mobile2x.jpg" alt="トップ画像">
+    <source media="(min-width: 681px)" srcset="img/hero-img.jpg, img/hero-img@2x.jpg" alt="トップ画像">
+    <img src="img/hero-img.jpg" alt="">
+  </picture>
+
+
+<!-- ハンバーガーメニュー -->
+<input id="Hamburger" type="checkbox">
+<label for="Hamburger" class="open">
+  <span class="hbg-1"></span>
+  <span class="hbg-2"></span>
+  <span class="hbg-3"></span>
+</label>
+<label for="Hamburger" class="return"></label>
+
+<!-- サイドメニュー（レスポンシブ専用） -->
+<section class="sidemenu">
+
+  <div class="sidemenu-nav"></div>
+    <nav class="sidemenu-nav">
+      <ul>
+        <li><a href="index.html">ABOUT</a></li>
+        <li><a href="index.html">SKILL</a></li>
+        <li><a href="index.html">WORKS</a></li>
+        <li><a href="index.html">CONTACT</a></li>
+      </ul>
+    </nav>
+</section>
+
+<!-- ヘッダー -->
+<header id="header">
+<div class="header-flex">
+  
+    <div class="header-text">
+
+      <h1 class="header-title">Portfolio</h1>
+      <nav class="top-nav">
+        <ul>
+          <li><a href="index.html">ABOUT</a></li>
+          <li><a href="index.html">SKILL</a></li>
+          <li><a href="index.html">WORKS</a></li>
+          <li><a href="index.html">CONTACT</a></li>
+        </ul>
+      </nav>
+
+    </div>
+</div>
+</header>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- メインコンテンツ -->
+<main id="main">
+
+<!-- ABOUT -->
+<section id="about">
+
+    <!-- タイトル -->
+    <div class="contents-title">
+      <h2>ABOUT</h2>
+    </div>
+
+      <div class="prof-flex flex-container">
+      
+        <!-- プロフ画像 -->
+        <div class="prof-li profBox-1x1 js-animation">
+          <img src="img/motofumi5.gif" alt="プロフィール画像">
+        </div>
+        <!-- プロフテーブル -->
+        <div class="prof-table profBox-4x3 js-animation">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>NAME:</th><td><span class="mg-r">田中</span>基文</td>
+              </tr>
+              <tr>
+                <th>LIVE:</th><td>大阪</td>
+              </tr>
+              <tr>
+                <th>AGE:</th><td>31</td>
+              </tr>
+              <tr>
+                <th>LIKE:</th><td>漫画、ゲーム</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+    </div>
+
+
+  <!-- 仕事で大切にしていること -->
+  <div class="about-passion">
+    <ul class="flex-container about-flex">
+
+      <div class="variable-box box-1x1 js-animation">
+        <li class="about-li">
+          <h3>スピードを意識</h3>
+          <p>・納期は絶対守る</p>
+          <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+        </li>
+      </div>
+
+      <div class="variable-box box-1x1 js-animation">
+        <li class="about-li">
+          <h3>スピードを意識</h3>
+          <p>・納期は絶対守る</p>
+          <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+        </li>
+      </div>
+
+      <div class="variable-box box-1x1 js-animation">
+        <li class="about-li">
+            <h3>スピードを意識</h3>
+            <p>・納期は絶対守る</p>
+            <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+        </li>
+      </div>
+
+    </ul>
+  </div>
+
+</section>
+
+<!-- SKILL -->
+<section id="skill">
+  
+  <div class="skill-wrap"></div>
+  <!-- タイトル -->
+  <div class="contents-title">
+    <h2>SKILL</h2>
+  </div>
+
+  <div class="progress-pie">
+    <div class="progress-pie-chart" data-percent="43">
+      <!-- チャートバー -->
+      <div class="ppc-progress">
+        <div class="ppc-progress-fill"></div>
+      </div>
+      <!-- パーセント -->
+      <div class="ppc-percents">
+        <div class="pcc-percents-wrapper">
+          <div class="ppc-text">HTML</div>
+          <span>%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="skill-flex">
+        <div class="skill-flex__item">
+          <p class="skill-total">TOTAL</p>
+        </div>
+        <!-- スキルバー -->
+        <div class="skillBar skill-flex__item">
+          <div id="js-show-skillbar">
+            <span class="bar bar-1">20%</span>
+            <span class="bar bar-2">20%</span>
+            <span class="bar bar-3">30%</span>
+            <span class="bar bar-4">30%</span>
+          </div>
+          <div class="prorate" data-value="100">1h</div>
+        </div>
+    </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+    <!-- タイトル -->
+    <div class="contents-title">
+      <h2>WORKS</h2>
+    </div>
+
+    <!-- アウトプット集 -->
+    <div class="works-wrap">
+      <ul class="works-flex flex-container">
+
+        <div class="variable-box2 box-4x3">
+          <li id="slide-X">
+            <a href="">
+              <srcset　src="img/tere-suku400x300.png, img/tore-suku800x600.png" alt="作品１">
+                <img src="img/tore-suku800x600.png" alt="">
+              <dl>
+                <dt>TORE-SUKU</dt>
+                <dd>ここに詳細を書く</dd>
+              </dl>
+            </a>
+          </li>
+        </div>
+
+        <div class="variable-box2 box-4x3">
+          <li id="slide-X">
+            <a href="">
+              <srcset　src="img/tere-suku400x300.png, img/tore-suku800x600.png" alt="作品１">
+                <img src="img/tore-suku800x600.png" alt="">
+              <dl>
+                <dt>TORE-SUKU</dt>
+                <dd>ここに詳細を書く</dd>
+              </dl>
+            </a>
+          </li>
+        </div>
+        
+        <div class="variable-box2 box-4x3">
+          <li id="slide-X">
+            <a href="">
+              <srcset　src="img/tere-suku400x300.png, img/tore-suku800x600.png" alt="作品１">
+                <img src="img/tore-suku800x600.png" alt="">
+              <dl>
+                <dt>TORE-SUKU</dt>
+                <dd>ここに詳細を書く</dd>
+              </dl>
+            </a>
+          </li>
+        </div>
+
+        <div class="variable-box2 box-4x3">
+          <li id="slide-X">
+            <a href="">
+              <srcset　src="img/tere-suku400x300.png, img/tore-suku800x600.png" alt="作品１">
+                <img src="img/tore-suku800x600.png" alt="">
+              <dl>
+                <dt>TORE-SUKU</dt>
+                <dd>ここに詳細を書く</dd>
+              </dl>
+            </a>
+          </li>
+        </div>
+      
+        <div class="variable-box2 box-4x3">
+          <li id="slide-X">
+            <a href="">
+              <srcset　src="img/tere-suku400x300.png, img/tore-suku800x600.png" alt="作品１">
+                <img src="img/tore-suku800x600.png" alt="">
+              <dl>
+                <dt>TORE-SUKU</dt>
+                <dd>ここに詳細を書く</dd>
+              </dl>
+            </a>
+          </li>
+        </div>
+
+        <div class="variable-box2 box-4x3">
+          <li id="slide-X">
+            <a href="">
+              <srcset　src="img/tere-suku400x300.png, img/tore-suku800x600.png" alt="作品１">
+                <img src="img/tore-suku800x600.png" alt="">
+              <dl>
+                <dt>TORE-SUKU</dt>
+                <dd>ここに詳細を書く</dd>
+              </dl>
+            </a>
+          </li>
+        </div>
+
+      </ul>
+    </div>
+</section>
+
+</main>
+
+<!-- CONTACT -->
+<section id="contact">
+  
+  <!-- タイトル -->
+  <div class="contents-title">
+    <h2>CONTACT</h2>
+  </div>
+
+  <!-- フォーム -->
+  <div class="contents-form">
+    <form action="" method="post" class="form">
+        <div class="area-msg">
+          <!-- <?php if(!empty($err_msg['common'])) echo $err_msg['common']; ?> -->
+        </div>
+      <!-- Name -->
+        <label class="form-group">
+          Name<span id="help-block" class="has-err"></span>
+          <input type="text" name="name" class="valid-name">
+        </label>
+      <!-- Email -->
+        <label class="form-group">
+          Email<span id="help-block" class="has-err"></span>
+          <input type="text" name="email" class="valid-email">
+        </label>
+      <!-- テキストエリア -->
+        <label class="form-group">
+          Contents<span id="help-block" class="has-err"></span>
+          <textarea name="textarea" class="valid-comment"></textarea>
+        </label>
+        <p><span id="js-showCount-text">0</span>/100</p>
+      <!-- 送信ボタン -->
+        <input type="submit" name="submit" value="送信" class="valid-submit">
+    </form>
+  </div>
+  
+</section>
+
+<!-- footer -->
+<footer id="footer">
+
+  <div class="footer-flex">
+      <!-- twitter -->
+      <span class="fa-stack">
+        <a href="index.php">
+          <i class="fa fa-circle fa-fw fa-stack-2x i-twitter"></i>
+          <i class="fab fa-twitter fa-stack-1x fa-fw i-icon"></i>
+        </a>
+      </span>
+      <!-- facebook -->
+      <span class="fa-stack">
+        <a href="index.php">
+          <i class="fa fa-circle fa-fw fa-stack-2x i-facebook"></i>
+          <i class="fab fa-facebook-f fa-stack-1x fa-fw i-size i-icon"></i>
+        </a>
+      </span>
+      <span class="fa-stack">
+        <a href="index.php">
+          <i class="fa fa-circle fa-fw fa-stack-2x i-mail"></i>
+          <i class="fa fa-envelope fa-stack-1x fa-fw i-size i-icon"></i>
+        </a>
+      </span>
+  </div>
+
+</footer>
+
+<!-- jQuery読み込み -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+
+<!-- ajax読込み -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<!-- JSファイル読込み -->
+<script type="text/javascript" src="JS/script.js"></script>
+
+<!-- ページ読み込み時にヘッダーが一瞬表示されるのを防ぐ -->
+<script type="text/javascript">
+  $(window).load(function() {
+    $('#header').fadeIn(0); 
+  });
+</script>
+
+<!-- srcset 未対応ブラウザへの対応 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.js"></script>
+
+
+</body>
+</html>

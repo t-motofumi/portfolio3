@@ -1,0 +1,816 @@
+@charset"utf-8";
+
+*{
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%; /* ルートのフォントサイズを10pxに設定 */
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', Arial,
+  "Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  color: #333;
+  font-size: 1.6rem; /* 16px */
+}
+ul,li,ol {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+img {
+  border: none;
+  vertical-align: bottom;
+}
+
+
+/* コンテンツタイトル */
+.contents-title {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  font-size: 1.2em;
+}
+
+/* flexbox */
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap;
+}
+@media screen and (max-width: 680px) {
+  .flex-container {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .contents-title {
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    font-size: 1.2em;
+  }
+}
+/* エラーメッセージ */
+.has-err {
+  font-size: 12px;
+  color: #D94A3E;
+  margin-left: 10px;
+}
+
+
+
+
+#hero {
+  /* position: relative; */
+}
+
+/*=======================
+ ヒーロー画像
+ ======================*/
+ #hero-img {
+  position: relative;
+  
+    img{
+      max-width: 100%;
+      height: auto;
+    }
+}
+/*======================
+ ヘッダー（中央）
+======================*/
+#header{
+  position: absolute;
+  top: calc(50% - 25%);
+  left: calc(50% - 25%);
+  min-width: 50%;
+  height: auto;
+    
+    .header-title {
+      font-size: 2em;
+      letter-spacing: 0.1em;
+      padding-bottom: 7%;
+    }
+}
+
+.top-nav ul li {
+  letter-spacing: 0.2em;
+  font-size: 1em;
+  padding-bottom: 7%;
+  padding-left: 2px;
+
+    a {
+      position: relative;
+      display: inline-block;
+    }
+    a::after {
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: #333;
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s;
+    }
+    a:hover::after {
+      bottom: -4px;
+      opacity: 1;
+      visibility: visible;
+    }
+}
+
+
+
+
+
+/* ヘッダーのレスポンシブは以下から。 */
+@media screen and (max-width: 900px){
+
+    /* ヘッダー　is-fixed */
+  .is-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    width: 75%;
+    height: 60px;
+    margin: 0 auto;
+    z-index: 200;
+    opacity: 1;
+    -webkit-transition: all .8s ease;
+      -moz-transition: all 0.8s;
+        -ms-transition: all 0.8s ease;
+          -o-transition: all 0.8s ease;
+            transition: all 0.8s ease;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  #header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .header-title {
+      padding: 20px;
+      font-size: 2em;
+    }
+
+    .top-nav {
+      display: none;
+    }
+
+  }
+}
+/*==============================
+ ハンバーガーメニュー
+==============================*/
+
+/* チェックボックスは非表示 */
+input[type=checkbox] {
+  display: none;
+}
+
+/* HBGボタン */
+.open {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 25px;
+  width: 30px;
+  height: 22px;
+  vertical-align: middle;
+  cursor: pointer;
+  z-index: 99;
+}
+.open span {
+  position: absolute;
+  height: 3px;
+  width: 30px;
+  background: #555;
+  content: '';
+}
+.hbg-2 {
+  top: 35px;
+}
+.hbg-3 {
+  top: 45px;
+}
+
+/* サイドメニュー (レスポンシブ専用）*/
+.sidemenu {
+  display: none;
+  overflow: auto; /*縦スクロール*/
+  position: fixed;
+  top: 0;
+  right: -100vw;
+  height: 100%;
+  width: 70%;
+  z-index: 12;
+  background: #fff;
+  transition: .2s ease-in-out;
+  z-index: 2;
+}
+
+
+@media screen and (max-width: 680px) {
+  .sidemenu {
+    display: block;
+  }
+  .sidemenu-nav {
+    position: absolute;
+    top: 15%; 
+    left: 30%;
+    font-size: 1.8em;
+  }
+  .sidemenu-nav a {
+    display: block;
+    padding-bottom: 3em;
+    color: #555;
+  }
+  .sidemenu-nav a:hover {
+    text-decoration: underline;
+  }
+  /* ハンバーガーメニュークリック後、背景を黒に */
+  .return { 
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+    z-index: 1;
+  }
+  /* ハンバーガーアイコン */
+  .open {
+    display: block;
+    z-index: 4;
+  }
+  
+  /* ハンバーガーマークがクリックされた時 */
+  input[type=checkbox]:checked ~ .sidemenu {
+    display: block;
+    right: 0;
+  }
+  input[type=checkbox]:checked ~ .return {
+    display: block;
+    opacity: .8;
+  }
+  input[type=checkbox]:checked ~ .open .hbg-1 {
+    width: 15px;
+    -webkit-transform: translateX(16px) translateY(5px) rotate(45deg);
+    transform: translateX(16px) translateY(5px) rotate(45deg);
+    transition: all .5s ease-in-out;
+  }
+  input[type=checkbox]:checked ~ .open .hbg-3 {
+    width: 15px;
+    -webkit-transform: translateX(16px) translateY(-5px) rotate(-45deg);
+    transform: translateX(16px) translateY(-5px) rotate(-45deg);
+    transition: all .5s ease-in-out;
+  }
+  
+  /* メニュー表示時にbodyを固定 */
+  .fixed {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/*===========================
+  ABOUT
+===========================*/
+#about {
+  width: 100%;
+  height: auto;
+}
+
+/* プロフ画像と内容を横並びに */
+.prof-flex {
+  max-width: 50%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* プロフ画像 */
+.prof-li {
+  position: relative;
+  width: 34%;
+  min-width: 180px;
+  max-width: 100%;
+  height: auto;
+  
+}
+.profBox-1x1::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.prof-li img, .prof-li table {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 680px) {
+    .prof-li {
+      margin: 0 auto 3em;
+    }
+    .prof-flex {
+      max-width: 60%;
+      height: auto;
+      margin: 0 auto;
+      font-size: 1.8rem;
+    }
+
+  }
+
+/* プロフテーブル*/
+.prof-table {
+  position: relative;
+  min-width: 42%;
+  max-width: 100%;
+  height: 100%;
+}
+.profBox-4x3::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.table {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align-last: left;
+  letter-spacing: 0.2em;
+  font-size: 1.8rem;
+
+  th,td {
+      // padding-bottom: 10%;
+      white-space: nowrap;
+  } /* 文字数が一番多いものに合わせる*/
+  td {
+    padding-left: 15%;
+  }
+}
+// 名前の苗字のみぎにスペース空ける
+.mg-r {
+  margin-right: 10px;
+}
+
+
+      
+
+
+/* 3つの正方形BOXを画面幅によってサイズを可変にする */
+.about-passion {
+  width: 100%;
+  margin-top: 10%;
+}
+.about-flex {
+  max-width: 80%;
+  margin: 0 auto;
+
+}
+.variable-box {
+  position: relative;
+  min-width: 30%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1em;
+  background: #f4f4f6;
+}
+.box-1x1::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.about-li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.2em;
+  box-sizing: border-box;
+}
+
+
+@media screen and (min-width: 481px) {
+
+  .variable-box h3 {
+    font-size: 1.6rem;
+  }
+  .variable-box p {
+    font-size: 1.4rem;
+  }
+  .table {
+    font-size: 1.6rem;
+
+    th,td {
+      padding-bottom: 1.4em;
+    }
+  }
+}
+@media screen and (min-width: 980px) {
+  .variable-box h3 {
+    font-size: 2.4rem;
+  }
+  .variable-box p {
+    font-size: 1.8rem;
+  }
+  .table {
+    font-size: 1.8rem;
+    th, td {
+    padding-bottom: 0em;
+    }
+  }
+}
+
+.js-animation {
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+  transform: translateY(50px);
+}
+/* アニメーション要素までスクロールした時のスタイル */
+.js-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/*===========================
+  SKILL
+===========================*/
+#skill {
+  margin-bottom: 6em;
+}
+
+// スキルチャート
+.progress-pie {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 4em;
+}
+
+@mixin circle($size) {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - #{$size/2});
+  top: calc(50% - #{$size/2});
+  width: $size;
+  height: $size;
+}
+$size: 200px;
+
+.progress-pie-chart {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: #E5E5E5;
+  position: relative;
+  &.gt-50 {
+    background-color: #81CE97;
+  }
+}
+.ppc-progress {
+  @include circle($size);
+  clip: rect(0, $size, $size, #{$size/2});
+  .ppc-progress-fill {
+    @include circle($size);
+    clip: rect(0, #{$size/2}, $size, 0);
+    background: #81CE97;
+    transform: rotate(60deg);
+  }
+  .gt-50 & {
+    clip: rect(0, #{$size/2}, $size, 0);
+    .ppc-progress-fill {
+      clip: rect(0, $size, $size, #{$size/2});
+      background: #E5E5E5;
+    }
+  }
+}
+.ppc-percents {
+  @include circle(#{$size/1.2});
+  background: #fff;
+  text-align: center;
+  display: table;
+  .ppc-text {
+    font-size: 2.6em;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  span {
+    display: inline-block;
+    font-size: 2em;
+    font-weight: bold;
+    color: #81CE97;
+  }
+}
+.ppc-percents-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+
+
+/* スキルまとめ */
+.skill-wrap {
+}
+
+/* スキルflex */
+.skill-flex {
+  display: flex;
+  height: 60px;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: .4em;
+  box-sizing: border-box;
+}
+
+/* スキルアイコン */
+// .skill-flex img {
+//   width: 2.8em;
+//   height: 2.8em;
+//   padding-right: 10px;
+// }
+
+/* スキルバー */
+.skillBar {
+  display: flex;
+  width: 100%;
+  height: 1.4em;
+  // background: rgba(240,240,240,0.5);
+  margin-left: 10px;
+}
+
+#js-show-skillbar {
+  display: inline-block;
+  width: 1px;
+  height: 100%;
+  background: #f5f6f6;
+  // background-image: linear-gradient(120deg, #c2e9fb 0%, #a1c4fd 100%);
+  overflow: hidden;
+  font-size: 0;//　display:inline-blockの改行隙間を埋める
+  margin-right: 10px;
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  .bar {
+      display: inline-block;
+      height: 100%;
+      font-size: 1.4rem;
+      text-align: center;
+      line-height: 1.8em;
+      color: #fff;
+  }
+  .bar-1 {
+      background: #F26821;
+      width: 20%;
+  }
+  .bar-2 {
+      background: #25A8DF;
+      width: 20%;
+    
+  }
+  .bar-3 {
+      background: #F7DF1C;
+      width: 30%;
+      color: #333;
+  }
+  .bar-4 {
+      background: #787BB3;
+      width: 30%;
+  }
+}
+.prorate { 
+  display: inline-block;
+  vertical-align: top;
+  height: 2.4em;
+  line-height: 1.4em;
+}
+
+
+
+/* スキルテキスト */
+// .skill-text {
+//   width: 50%;
+//   height: 100%;
+//   margin-left: 10px;
+//   padding: 1em;
+//   border: 3px solid #f5f4f4;
+//   box-sizing: border-box;
+// }
+
+
+
+/*============================
+  WORK
+============================*/
+#works {
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+}
+
+.works-wrap {
+
+}
+
+.works-flex {
+  max-width: 80%;
+  margin: 0 auto;
+}
+.variable-box2 {
+  position: relative;
+  min-width: 30%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1em;
+  overflow: hidden;
+}
+.box-4x3::before {
+  content: '';
+  display: block;
+  padding-top: 75%;
+}
+
+.works-flex img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /*-ms-interpolation-mode: bicubic;　IEで画像が縮小されても綺麗にする */
+}
+.works-flex dl {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  color: #fff;
+  background: rgba(205,92,92,.9);
+  
+}
+.works-flex dl dd {
+  margin: 0;
+  font-size: 1em;
+  text-align: justify;
+  word-break: break-all;
+}
+.works-flex dl dd:not(:first-child) {
+	margin-top: .5em;
+}
+.works-flex dl dd:last-of-type {
+  text-align: left;
+}
+#slide-X {
+  overflow: hidden;
+}
+#slide-X dl {
+  transition: opacity .6s, transform .3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+#slide-X:not(:hover) dl {
+  opacity: 0;
+  transform: translateX(-100%);
+ }
+ /* https://lopan.jp/css-animation-hover/ */
+ 
+/*=============================
+  CONTACT
+=============================*/
+#contact {
+  margin-bottom: 8em;
+}
+
+/* お問い合わせフォーム */
+.contents-form {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.form {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  font-size: 1.4em;
+
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 680px) {
+  .form {
+    width: 90%;
+    padding: 0;
+  }
+  .input {
+    height: 4em;
+  }
+}
+@media screen and (min-width: 980px) {
+  .form {
+    width: 40%;
+  }
+}
+input {
+  width: 100%;
+  height: 4em;
+  padding: 1em;
+  background:  #f4f4f6;
+  margin-bottom: 1.2em;
+  border: none;
+  box-sizing: border-box;
+}
+input[type="text"] {
+
+}
+input[type="submit"] {
+  width: 28%;
+  height: 3em;
+  line-height: 1;
+  margin-top: .4em;
+  float: right;
+  font-size: .8em;
+  background: #3E3A39;
+  color: #fff;
+}
+input[type="submit"]:hover {
+  cursor: pointer;
+  opacity: 0.6;
+
+}
+textarea {
+  width: 100%;
+  height: 40vh;
+  padding: 10px;
+  border: none;
+  resize: none;
+  padding: 1em;
+  box-sizing: border-box;
+  background:  #f4f4f6;
+}
+.contents-form p {
+  font-size: 0.8em;
+}
+
+/*===========================
+  footer
+===========================*/
+#footer {
+  width: 100%;
+  height: 100px;
+  background: #3E3A39;
+  color: #fff;
+}
+.footer-flex {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+}
+.fa-stack {
+  font-size: 1.6em;
+}
+.i-icon {
+  color: #fff;
+}
+.i-size {
+
+}
+.i-twitter {
+  color: #1F9DEB;
+  
+}
+.i-facebook {
+  color: #3B579D;
+}
+.i-mail {
+  color: #D94A3E;
+}
